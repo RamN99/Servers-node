@@ -1,0 +1,35 @@
+    <html>
+    
+    <head>
+        <title>student details database</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Hello world</h1>
+        <div class="inner">
+            <h2>student-></h2>
+            <ul id="stud"></ul>
+        </div>
+    </body>
+    
+</html>
+<script>
+$.ajax({
+    url:'/api/students',
+    success: function (Student)
+    {
+      //  console.log(inventory)
+        Student.forEach(function(Student)
+        {
+            $("#stud").append("<li>"+Student.name+"</li>")
+            $('#stud').append("<li>"+Student.email+"</li>")
+            $("#stud").append("<li>"+Student.phone+"<li>")
+        })
+    },
+    error:function(error)
+    {
+        console.log(error)
+    }
+})
+</script>
+</html>
